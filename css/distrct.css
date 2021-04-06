@@ -1,0 +1,19 @@
+.card-img-top  {
+    width: 100% !important;
+    height: 15vw !important;
+    object-fit: cover !important;
+   
+}
+#firstImg{
+
+    width: 100% !important;
+    height: 20vw !important;
+    object-fit: cover !important;
+
+    /* border-radius: 8px; */
+    border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+
+}
