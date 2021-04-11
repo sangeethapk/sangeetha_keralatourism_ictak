@@ -2,78 +2,18 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wayanad</title>
+<title>Sign Up</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!-- for eye in password -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-<style>
-/* body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
- } */
+    <link rel="stylesheet" href="../css/signupcss.css">
+    <script src="../js/validatesignup.js"></script>
 
-* {
-  box-sizing: border-box;
-}
-
-/* Add padding to containers */
-#signin {
-  padding: 16px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
 </head>
 <dody>
     <header>
@@ -101,32 +41,49 @@ a {
         </div>
     </nav>
     </header>
-<dody>
-<form>
-  <div class="container" id="signin">
+    <body>
+<form action="./login.html" onsubmit="return validateSignUp();">
+  <div class="container" id="signup">
      
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <label for="email" id="emaillbl"><b>Email</b>
+    <small id="emailErrorlbl"></small>
+    </label><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" onfocusout="validateEmail()" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <label for="phone" id="phonelabel"><b>Phone Number</b><small style="color:red" id="phlblError"></small></label>
+    <input type="text" placeholder="Phone Number" name="phone" id="phone" onfocusout="validatePhoneNumber()" required>
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <label for="psw"><b>Password: </b>
+       <small id="pswlbl">Must contain minimum 8 characters, at least one uppercase, and one lower case and  at least one number</small> 
+       
+    </label>
+    <div>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" onfocusout="validatePassword()" required>
+      <!-- <input type="button" id="togglebtn" value="show" onclick="funToggle()" style="margin-left: -30px;cursor: pointer;"/> -->
+      <i class="far fa-eye" id="togglePassword"  onclick="funToggle()" style="margin-left: -30px;cursor: pointer;"></i> 
+    </div>
+    
+    <label for="psw-repeat"><b>Repeat Password</b>
+      <small id="pswRepeatlbl"> </small> 
+       
+    </label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" onfocusout="checkEquality()" required>
     <!-- <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> -->
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" id="register" >Register</button>
   </div>
   
   <div class="container signin">
     <p>Already have an account? <a href="./login.html">Sign in</a>.</p>
   </div>
 </form>
+ 
+
 
 </body>
 </html>

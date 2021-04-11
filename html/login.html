@@ -5,12 +5,15 @@
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/distrct.css">
+    <link rel="stylesheet" href="../css/signupcss.css">
+
 
     <style>
         /* body {
@@ -53,29 +56,56 @@
     <h2 style="text-align: center;">Login </h2><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 me-5"><img id="firstImg" src="../images/img/loginbg/welcome-to-gods-own-country-kerala-1-638.jpg"></div>
+            <div class="col-lg-4 me-5"><img id="firstImg"
+                    src="../images/img/loginbg/welcome-to-gods-own-country-kerala-1-638.jpg"></div>
 
-            <div class="col-lg-3">
-                <form>
-                    <div class="mb-4">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div class="col-lg-5">
 
+
+
+
+                <form action="./districts.html" onsubmit="return loginvalidate();">
+                    <div class="container" id="signin">
+
+
+
+                        <label for="email" id="emaillbl"><b>Email</b>
+                            <small id="emailErrorlbl"></small>
+                        </label><br>
+                        <input type="text" placeholder="Enter Email" name="email" id="email"
+                            onfocusout="validateEmail()" required>
+
+
+                        <label for="psw"><b>Password: </b>
+                            <small id="pswlbl"></small>
+
+                        </label>
+                        <div>
+                            <input type="password" placeholder="Enter Password" name="psw" id="psw"
+                                onfocusout="validatePassword()" required>
+                            <!-- <input type="button" id="togglebtn" value="show" onclick="funToggle()" style="margin-left: -30px;cursor: pointer;"/> -->
+                            <i class="far fa-eye" id="togglePassword" onclick="funToggle()"
+                                style="margin-left: -30px;cursor: pointer;"></i>
+                        </div>
+
+
+
+                        <button type="submit" class="registerbtn" id="register">Login</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Remember me </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+
                 </form>
+
+
             </div>
             <div class="col-3"></div>
         </div>
     </div>
+
+
+
+
+    <script src="../js/validatelogin.js"></script>
 
 </body>
 
