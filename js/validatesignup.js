@@ -9,7 +9,7 @@ document.getElementById("email").addEventListener("focusout", validateEmail());
 function validateEmail() {
 
     let emailValue = document.getElementById("email").value;
-    let regexp = /^([\w.-]+)@([\w-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
+    let regexp = /^([\w.-]+)@([\w-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
 
 
     document.getElementById("emailErrorlbl").innerText = ""
@@ -58,7 +58,8 @@ function validatePhoneNumber() {
 document.getElementById("psw").addEventListener("focusout", validatePassword());
 function validatePassword() {
     let password = document.getElementById("psw").value;
-    let pswlbl = document.getElementById("pswlbl");
+    
+    document.getElementById("pswlbl").innerText="";
 
     let regexp2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     let regexp1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/;
@@ -89,6 +90,7 @@ function validatePassword() {
 
         }
         valid = true;
+        
     }
     else {
 

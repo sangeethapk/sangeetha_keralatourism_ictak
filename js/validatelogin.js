@@ -15,12 +15,12 @@ function validateEmail() {
 function validateEmail() {
 
     let emailValue = document.getElementById("email").value;
-    let regexp = /^([\w.-]+)@([\w-]+).([a-z]{2,3})(.[a-z]{2,3})?$/;
+    let regexp = /^([\w.-]+)@([\w-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;;
 
 
-    document.getElementById("emailErrorlbl").innerText = ""
-    //document.getElementById("phlblError").innerText = "";
-
+    document.getElementById("emailErrorlbl").innerText = "";
+    document.getElementById("pswlbl").innerText="";
+     
     if (regexp.test(emailValue)) {
 
         valid = true;
