@@ -1,8 +1,10 @@
 
-let valid;
+let validEmail,validPass,validPh,validPassRe;
 function validateSignUp() {
-
-      return valid;
+  if(validEmail&&validPass&&validPh&validPassRe)
+      return true;
+  else
+        return false;
 }
 //Email Validation start
 document.getElementById("email").addEventListener("focusout", validateEmail());
@@ -17,13 +19,13 @@ function validateEmail() {
 
     if (regexp.test(emailValue)) {
 
-        valid = true;
+        validEmail = true;
     }
     else {
         document.getElementById("emailErrorlbl").innerText = "Enter valid email id.";
         document.getElementById("emailErrorlbl").style.color = "red";
         document.getElementById("emailErrorlbl").style.fontWeight = "bold";
-        valid = false;
+        validEmail = false;
     }
 
 }
@@ -38,7 +40,7 @@ function validatePhoneNumber() {
     if (regexp.test(phoneNumber)) {
 
 
-        valid = true;
+        validPh = true;
         document.getElementById("phlblError").innerText = "";
 
     }
@@ -47,7 +49,7 @@ function validatePhoneNumber() {
 
         let msg = ": Invalid Phone number";
         document.getElementById("phlblError").innerText = msg;
-        valid = false;
+        validPh = false;
     }
 
 }
@@ -66,8 +68,8 @@ function validatePassword() {
 
 
     if (regexp1.test(password)) {
-        //if password contains one capital,one small letter,one digit and its between 8-9 characters length
-        if (password.length >= 8 && password.length < 10) {
+        //if password contains one capital,one small letter,one digit and its between 8 or more  characters length
+        if (password.length >= 8) {
             let msg = " GOOD";
             let msglbl = document.getElementById("pswlbl");
 
@@ -76,7 +78,7 @@ function validatePassword() {
             msglbl.style.fontWeight = "bold";
             //alert(regexp.test(password));
         }
-        //if password contains one capital,one small letter,one digit and its between more than 10 character characters length and contain special character
+        //if password contains one capital,one small letter,one digit and its between more than 8 character characters length and contain special character
         else if (regexp2.test(password)) {
 
 
@@ -89,7 +91,7 @@ function validatePassword() {
 
 
         }
-        valid = true;
+        validPass = true;
         
     }
     else {
@@ -103,7 +105,7 @@ function validatePassword() {
         msglbl.innerText = msg;
         msglbl.style.color = "red";
         msglbl.style.fontWeight = "bold";
-        valid = false;
+        validPass = false;
     }
 
 
@@ -117,7 +119,7 @@ function checkEquality() {
     pswRepeat = document.getElementById("psw-repeat").value;
 
     if (psw == pswRepeat) {
-        valid = true;
+        validPassRe = true;
         document.getElementById("register").disable = false;
 
     }
@@ -129,7 +131,7 @@ function checkEquality() {
         document.getElementById("pswRepeatlbl").style.color = "red";
         document.getElementById("pswRepeatlbl").fontWeight = "bold";
 
-        valid = false;
+        validPassRe = false;
     }
 
 

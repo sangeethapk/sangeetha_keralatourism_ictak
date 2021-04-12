@@ -1,9 +1,14 @@
-let valid;
+let validEmail,validPass;
 function loginvalidate() {
 
    // validateEmail();
 //validatePassword();
-     return valid;
+
+if(validEmail&&validPass)
+      return true;
+  else
+        return false;
+     
  }
 //Email Validation start
 //document.getElementById("emaillogin").addEventListener("focus",validateEmail());
@@ -23,13 +28,14 @@ function validateEmail() {
      
     if (regexp.test(emailValue)) {
 
-        valid = true;
+        validEmail = true;
+        document.getElementById("welcome").innerText="Welcome...."
     }
     else {
         document.getElementById("emailErrorlbl").innerText = "Enter valid email id.";
         document.getElementById("emailErrorlbl").style.color = "red";
         document.getElementById("emailErrorlbl").style.fontWeight = "bold";
-        valid = false;
+        validEmail = false;
     }
 
 }
@@ -48,7 +54,7 @@ function validatePassword() {
     if (regexp.test(password)) {
         
         document.getElementById("pswlbl").innerText = "";
-        valid = true;
+        validPass = true;
     }
     else {
 
@@ -61,7 +67,7 @@ function validatePassword() {
         msglbl.innerText = msg;
         msglbl.style.color = "red";
         msglbl.style.fontWeight = "bold";
-        valid = false;
+        validPass = false;
     }
 
 
