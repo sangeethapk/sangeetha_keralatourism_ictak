@@ -69,7 +69,7 @@ function validatePassword() {
 
     if (regexp1.test(password)) {
         //if password contains one capital,one small letter,one digit and its between 8 or more  characters length
-        if (password.length >= 8) {
+        if (password.length <10) {
             let msg = " GOOD";
             let msglbl = document.getElementById("pswlbl");
 
